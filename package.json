@@ -1,0 +1,7 @@
+{
+  "name": "FizzBuzz",
+  "version": "1.0",
+  "dependencies": {
+    "jasmine-node": "^1.14.5"
+  }
+}
