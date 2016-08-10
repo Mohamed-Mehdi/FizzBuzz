@@ -1,6 +1,9 @@
 {
   "name": "FizzBuzz",
-  "version": "1.0",
+  "version": "0.0.1",
+  "scripts": {
+    "test": "./node_modules/.bin/jasmine-node spec"
+  },
   "dependencies": {
     "jasmine-node": "^1.14.5"
   }
