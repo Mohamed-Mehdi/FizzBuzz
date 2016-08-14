@@ -5,9 +5,13 @@ var readlineSync = require('readline-sync');
  we should check the value of (i-1), because our function is a tab starting from 1 and the
  index of 1 is 0*/
 
-// Wait for user's response.
-var n1 = parseInt(readlineSync.question('n1 : '));
-var n2 = parseInt(readlineSync.question('n2 : '));
+var n1 = 3;
+var n2 = 5;
+
+if (readlineSync.keyInYN('Do you want configure the first and second number to run the tests or use the standard numbers (3,5) ?')) {
+    n1 = readlineSync.questionInt('Enter first number : ');
+    n2 = readlineSync.questionInt('Enter second number : ');
+}
 
 describe("FizzBuzz Test", function () {
     it("should have 100 elements", function () {
@@ -40,3 +44,5 @@ describe("FizzBuzz Test", function () {
         }
     });
 });
+console.log("--------------------------------");
+console.log("tests with n1= " + n1 + " and n2= " + n2);
