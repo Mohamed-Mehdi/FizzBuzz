@@ -5,20 +5,28 @@ var readlineSync = require('readline-sync');
  we should check the value of (i-1), because our function is a tab starting from 1 and the
  index of 1 is 0*/
 
-var n1 = 3;
-var n2 = 5;
+var n1 = 0;
+var n2 = 0;
 
 if (readlineSync.keyInYN('Do you want configure the first and second number to run the tests or use the standard numbers (3,5) ?')) {
     n1 = readlineSync.questionInt('Enter first number : ');
     n2 = readlineSync.questionInt('Enter second number : ');
 }
 
+n1 = n1 > 0 ? n1 : 3;
+n2 = n2 > 0 ? n1 : 5;
+
 describe("FizzBuzz Test", function () {
     it("should have 100 elements", function () {
         expect(FizzBuzz(n1, n2).length).toBe(100);
     });
-    it("should have 1 as first element", function () {
-        expect(FizzBuzz(n1, n2)[0]).toBe(1);
+
+    it("should have a number if this number is not multiple of one of the two numbers", function () {
+        for (var i = 1; i < 100; i++) {
+            if (i % n1 != 0 && i % n2 != 0) {
+                expect(FizzBuzz(n1, n2)[i - 1]).toBe(i);
+            }
+        }
     });
 
     it("should return FizzBuzz when the number is multiple of " + n1 + " and " + n2, function () {
