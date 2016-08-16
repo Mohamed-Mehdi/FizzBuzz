@@ -14,7 +14,7 @@ if (readlineSync.keyInYN('Do you want configure the first and second number to r
 }
 
 n1 = n1 > 0 ? n1 : 3;
-n2 = n2 > 0 ? n1 : 5;
+n2 = n2 > 0 ? n2 : 5;
 
 describe("FizzBuzz Test", function () {
     it("should have 100 elements", function () {
@@ -22,7 +22,7 @@ describe("FizzBuzz Test", function () {
     });
 
     it("should have a number if this number is not multiple of one of the two numbers", function () {
-        for (var i = 1; i < 100; i++) {
+        for (var i = 1; i <= 100; i++) {
             if (i % n1 != 0 && i % n2 != 0) {
                 expect(FizzBuzz(n1, n2)[i - 1]).toBe(i);
             }
@@ -30,22 +30,22 @@ describe("FizzBuzz Test", function () {
     });
 
     it("should return FizzBuzz when the number is multiple of " + n1 + " and " + n2, function () {
-        for (var i = (n1 * n2); i < 100; i += n2) {
-            if (i % (n1 * n2) === 0) {
+        for (var i = 1; i <= 100; i += n2) {
+            if (i % n1 === 0 && i % n2 === 0) {
                 expect(FizzBuzz(n1, n2)[i - 1]).toBe("FizzBuzz");
             }
         }
     });
 
     it("should return Fizz when the number is multiple of " + n1, function () {
-        for (var i = n1; i < 100; i += n1) {
+        for (var i = n1; i <= 100; i += n1) {
             if (i % n2 != 0) {
                 expect(FizzBuzz(n1, n2)[i - 1]).toBe("Fizz");
             }
         }
     });
-    it("should return Fizz when the number is multiple of " + n2, function () {
-        for (var i = n2; i < 100; i += n2) {
+    it("should return Buzz when the number is multiple of " + n2, function () {
+        for (var i = n2; i <= 100; i += n2) {
             if (i % n1 != 0) {
                 expect(FizzBuzz(n1, n2)[i - 1]).toBe("Buzz");
             }
