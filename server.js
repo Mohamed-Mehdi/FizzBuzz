@@ -6,7 +6,7 @@ if (readlineSync.keyInYN('Do you want configure the RunTime (first and second nu
     var n2 = readlineSync.questionInt('Enter second number : ');
 
     n1 = n1 > 0 ? n1 : 3;
-    n2 = n2 > 0 ? n1 : 5;
+    n2 = n2 > 0 ? n2 : 5;
     
     console.log(FizzBuzz(n1, n2));
 } else {
